@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  websockify:
+    build: .
+    image: websockify-multiproxy:latest
+    container_name: vnc-websocket-multiproxy
+    network_mode: "host"               # you used --network host in your Makefile
+    restart: unless-stopped            # restart policy
+    # Optional: mount the script so you can edit it without rebuilding
+    # volumes:
+    #   - ./run-proxies.py:/app/run-proxies.py:ro
+    # environment:
+    #   - EXAMPLE_ENV=somevalue
